@@ -1,5 +1,8 @@
 import React from 'react';
-import { BiCreditCard, BiGlobeAlt, BiMessageSquare, BiSearch, BiTrendingUp } from 'react-icons/bi';
+import { 
+  BiCreditCard, BiGlobeAlt, BiMessageSquare, 
+  BiSearch, BiTrendingUp 
+} from 'react-icons/bi';
 import { BsDatabase } from 'react-icons/bs';
 import { FaUserSecret } from 'react-icons/fa';
 import { FiFileText } from 'react-icons/fi';
@@ -7,98 +10,109 @@ import { LuLanguages } from 'react-icons/lu';
 
 const solutions = [
   {
-    icon: <BiGlobeAlt />,
+    icon: <BiGlobeAlt size={30} />,
     title: "Custom AI-Powered Website",
     description: "Intelligent, responsive websites tailored to healthcare providers with automated patient interactions.",
-    color: "bg-blue-500"
+    color: "from-blue-500 to-blue-600"
   },
   {
-    icon: <FaUserSecret />,
+    icon: <FaUserSecret size={30} />,
     title: "Enhanced Patient Conversion",
     description: "Smart conversion optimization tools to turn visitors into patients with personalized experiences.",
-    color: "bg-purple-500"
+    color: "from-purple-500 to-purple-600"
   },
   {
-    icon: <BiMessageSquare />,
+    icon: <BiMessageSquare size={30} />,
     title: "Real-Time Query Handling",
     description: "Instant response system for patient inquiries with AI-powered chat support.",
-    color: "bg-green-500"
+    color: "from-green-500 to-green-600"
   },
   {
-    icon: <FiFileText />,
+    icon: <FiFileText size={30} />,
     title: "Medical Report Analysis",
     description: "Advanced AI analysis of medical reports for quick and accurate patient assessments.",
-    color: "bg-orange-500"
+    color: "from-orange-500 to-orange-600"
   },
   {
-    icon: <BiTrendingUp />,
+    icon: <BiTrendingUp size={30} />,
     title: "Improved Lead Generation",
     description: "Data-driven lead generation strategies to attract and engage potential patients.",
-    color: "bg-pink-500"
+    color: "from-pink-500 to-pink-600"
   },
   {
-    icon: <BsDatabase />,
+    icon: <BsDatabase size={30} />,
     title: "Comprehensive Healthcare Database",
     description: "Extensive medical information database for accurate patient guidance and support.",
-    color: "bg-indigo-500"
+    color: "from-indigo-500 to-indigo-600"
   },
   {
-    icon: <LuLanguages />,
+    icon: <LuLanguages size={30} />,
     title: "Multilingual Support",
     description: "Breaking language barriers with comprehensive multilingual communication tools.",
-    color: "bg-red-500"
+    color: "from-red-500 to-red-600"
   },
   {
-    icon: <BiCreditCard />,
+    icon: <BiCreditCard size={30} />,
     title: "Seamless Payment Handling",
     description: "Secure and efficient payment processing for medical services globally.",
-    color: "bg-teal-500"
+    color: "from-teal-500 to-teal-600"
   },
   {
-    icon: <BiSearch />,
+    icon: <BiSearch size={30} />,
     title: "Marketing And SEO Support",
     description: "Optimized digital presence with advanced SEO and marketing strategies.",
-    color: "bg-cyan-500"
+    color: "from-cyan-500 to-cyan-600"
   }
 ];
 
 const FeaturesGrid: React.FC = () => {
   return (
-    <div className="py-16 px-4 md:px-8 bg-gray-50">
+    <section className="py-20 px-6 md:px-10 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Comprehensive Solutions
           </h2>
-          <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+          <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => {
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                <div className="p-6">
-                  <div className={`${solution.color} inline-flex p-3 rounded-lg text-white mb-4`}>
-                    {solution.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {solution.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {solution.description}
-                  </p>
-                </div>
-                <div className={`h-1 w-full absolute bottom-0 ${solution.color} opacity-75`}></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {solutions.map((solution, index) => (
+            <div
+              key={index}
+              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden p-8 transition-all duration-300 hover:shadow-2xl hover:scale-105 focus-within:ring-2 focus-within:ring-primary"
+            >
+              {/* Icon */}
+              <div className={`bg-gradient-to-r ${solution.color} p-4 rounded-full inline-flex mb-6 text-white`}>
+                {solution.icon}
               </div>
-            );
-          })}
+
+              {/* Title */}
+              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                {solution.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {solution.description}
+              </p>
+
+              {/* Animated bottom bar */}
+              <span className={`absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r ${solution.color} transition-all group-hover:w-full`}></span>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default FeaturesGrid;
+
+// Icons are now bigger (30px) and centered nicely inside rounded backgrounds.
+// Used gradient backgrounds instead of flat colors → Looks more SaaS-like.
+// Added hover animation on card + bottom gradient underline animation.
+// Improved padding/margin for breathing room.
+// Added focus-visible ring for accessibility.
+// Responsive improvements (sm:grid-cols-2, lg:grid-cols-3) for tablets.
+// Softened the card corner radius (rounded-2xl).

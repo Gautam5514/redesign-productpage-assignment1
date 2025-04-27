@@ -19,9 +19,9 @@ const ClaimLandingSection = () => {
         <div className="bg-gradient-to-br from-white to-blue-50">
             <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                     {features.map((feature, index) => (
-                        <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                             <div className="flex items-center space-x-4">
                                 <div className="bg-indigo-100 p-3 rounded-lg">
                                     {feature.icon}
@@ -37,7 +37,7 @@ const ClaimLandingSection = () => {
 
                 {/* Main Content */}
                 <div className="flex flex-col items-center text-center space-y-8">
-                    <div className="bg-primary p-4 rounded-full">
+                    <div className="bg-primary p-4 rounded-full shadow-xl">
                         <BiBot className="w-12 h-12 text-white" />
                     </div>
 
@@ -46,7 +46,7 @@ const ClaimLandingSection = () => {
                             Claim Your Digital Front Office (Website)
                         </h1>
                         <p className="text-xl text-gray-600 mb-8">
-                            Use power AI to transform your online presence and automate patient interactions
+                            Use power AI to transform your online presence and automate patient interactions.
                         </p>
                     </div>
 
@@ -56,11 +56,17 @@ const ClaimLandingSection = () => {
                             disabled
                             type="text"
                             placeholder="GoGetWell.ai/your_name"
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
                         />
-                        <PatientSignUpPopup hcfLogin popupButtonStatus buttonChildren={<button className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300">
-                            Join the Waiting List
-                        </button>} />
+                        <PatientSignUpPopup
+                            hcfLogin
+                            popupButtonStatus
+                            buttonChildren={
+                                <button className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-transparent hover:text-primary transition-all duration-300">
+                                    Join the Waiting List
+                                </button>
+                            }
+                        />
                     </div>
                 </div>
             </div>
@@ -69,3 +75,12 @@ const ClaimLandingSection = () => {
 };
 
 export default ClaimLandingSection;
+
+
+
+// Subtle Shadows: Buttons and cards have smooth transitions and shadows that add depth without being too aggressive.
+
+// Color Consistency: The use of primary colors and background gradients makes the section feel cohesive and vibrant.
+
+// Interaction Feedback: Hover and focus effects provide users with feedback, improving the overall user experience.
+
